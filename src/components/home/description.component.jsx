@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { MENUS } from '../shared/menu';
 import { RECOMMENDS } from '../shared/recommends';
-import UserReviews from "../userReviews/userReviews.component";
+import UserReviews from "./userReviews.component";
 
 
 
@@ -22,10 +22,8 @@ const Main = () => (
       </p>
       <ul className="list">
         {MENUS.map((menu) => (
-          <Link to="/" className='list__link'>
-            <li className="list__item" key={menu.id}>
-              {menu.name}
-            </li>
+          <Link to="/" className="list__link" key={menu.menuId}>
+            <li className="list__item">{menu.name}</li>
           </Link>
         ))}
       </ul>
@@ -37,7 +35,7 @@ const Main = () => (
           {RECOMMENDS.map((recommend) => (
             <img
               className="recommend__photo"
-              key={recommend.id}
+              key={recommend.recommendId}
               src={recommend.imgUrl}
               alt={recommend.name}
             />
@@ -46,7 +44,6 @@ const Main = () => (
       </div>
     </div>
     <UserReviews />
-    
   </div>
 );
 

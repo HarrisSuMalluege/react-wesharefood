@@ -2,7 +2,7 @@ import React from 'react';
 import { OVERVIEWS } from '../shared/overviews';
 import Icon from '../icon';
 
-const Overview =({ name, rating, city, state, ratingAverage, ratingCount }) => (
+const RenderOverview =({ name, rating, city, state, ratingAverage, ratingCount }) => (
     <div className='overview'>
         <h1 className="overview__heading">Most Popular Food: {name}</h1>
         <div className='overview__stars'>
@@ -25,14 +25,14 @@ const Overview =({ name, rating, city, state, ratingAverage, ratingCount }) => (
 )
 
 
-const RenderOverviews = () => {
+const Overviews = () => {
     return (
         <div className='overview_rating'>
             {OVERVIEWS.map(({id, ...otherOverviews}) => (
-                <Overview key={id} {...otherOverviews} />
+                <RenderOverview key={id} {...otherOverviews} />
             ))}
         </div>
     )
 }
 
-export default RenderOverviews;
+export default Overviews;

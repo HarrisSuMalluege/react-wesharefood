@@ -320,10 +320,12 @@ body {
   .gallery__item {
   display: flex; }
   .gallery__item--photo {
-    width: 33.3%;
+    width: 33.33%;
+    height: 33.3%;
     display: block;
-    padding: 0 .3rem; }
-  
+    /* padding: 0 .3rem;  */
+    
+  }
 
 .overview {
   display: flex;

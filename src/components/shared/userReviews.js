@@ -9,7 +9,7 @@ export const REVIEWS =[
         date: 'Mar 05 2020',
     },
     {
-        id: 1,
+        reviewId: 1,
         name: 'Christina West',
         imgUrl: './images/user-8.jpg',
         comment: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur maiores voluptates laboriosam...',
