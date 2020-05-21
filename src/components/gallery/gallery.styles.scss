@@ -1,0 +1,17 @@
+
+/////////////////////////////////////////////
+/////////GALLERY
+
+.gallery{
+
+  &__item {
+    display: flex;
+    
+    
+    &--photo {
+        width: 33.3%;
+        display: block;
+        padding: 0 .3rem;
+    }
+}
+}
