@@ -7,6 +7,8 @@ export const USERPROFILES = [
         dateOfBirth: '05-21-1999',
         registryDate: '03-22-2019',
         profileImg: './images/user.jpg',
-        featured: 'true'
+        featured: 'true',
+        bookMark: 6,
+        notification: 18
     }
 ]

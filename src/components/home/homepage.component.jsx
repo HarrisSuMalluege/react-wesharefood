@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Sidebar from '../sidebar/sidebar.component';
-import RenderGallery from './gallery.component';
+import Gallery from "./gallery.component";
 import Overviews from "./overview.component";
 import Main from './description.component';
 import Reserver from "./reserver.component";
@@ -15,7 +15,7 @@ const Homepage = () => (
   <div className="content">
     <Sidebar />
     <main className="food-view">
-      <RenderGallery />
+      <Gallery />
       <Overviews />
       <Main />
       <Reserver />

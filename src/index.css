@@ -45,7 +45,7 @@ body {
   color: var(--color-grey-light-1); }
 
 .container-food {
-  max-width: 125vh;
+  max-width: 128vh;
   padding: 0;
   margin: .3rem auto; }
   @media only screen and (max-width: 75em) {
@@ -84,7 +84,7 @@ body {
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
-  flex: 0 0 20%;
+  flex: 0 0 22%;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
@@ -576,7 +576,7 @@ body {
   padding: 1rem 0;
   margin: 6rem 0; }
   .social__icon-1 {
-    font-size: 1.2rem;
+    font-size: 3rem;
     margin: 0 .8rem;
     color: var(--color-primary); }
     .social__icon-1:link, .social__icon-1:visited {
