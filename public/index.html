@@ -40,5 +40,15 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+      $(document).ready(function () {
+          $(".sidebarBtn").click(function () {
+            $(".side-nav__item").toggleClass("show");
+            $("ul li").toggleClass("hide");
+          });
+        });
+    </script>
+        
   </body>
 </html>

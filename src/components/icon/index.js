@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Logo from './logo';
 import Search from './search';
 import Phone from './phone';
 import Compass from './compass';
@@ -16,8 +15,6 @@ import Location from './location';
 
 const Icon = props => {
     switch (props.name) {
-        case 'logo':
-            return <Logo {...props} />
         case 'search':
             return <Search {...props} />
         case 'phone':

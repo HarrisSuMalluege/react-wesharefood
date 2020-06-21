@@ -25,6 +25,8 @@ const RenderOverview =({ name, rating, city, state, ratingAverage, ratingCount }
 )
 
 
+
+
 const Overviews = () => {
     return (
         <div className='overview_rating'>

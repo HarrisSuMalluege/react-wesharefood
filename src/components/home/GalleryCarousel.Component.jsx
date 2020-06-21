@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { GALLERY } from "../shared/gallery";
 
 // import './gallery.styles.scss';
@@ -21,6 +21,9 @@ const Gallery = () => {
     );
 
 }
+
+
+
 
 export default Gallery;
 
