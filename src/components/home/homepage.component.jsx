@@ -1,31 +1,23 @@
 import React from 'react'
 
-import Sidebar from '../sidebar/sidebar.component';
+// import Sidebar from '../sidebar/sidebar.component';
 import Gallery from "./GalleryCarousel.Component";
 import Overviews from "./overview.component";
 import Main from './description.component';
 import Reserver from "./reserver.component";
-import Social from '../socialMedia/social.component';
-import Newsletters from './newsletters.component';
-import Footer from '../footer/footer.component';
 
 
 
 
-const Homepage = () => (
-  <div className="content">
-    <Sidebar />
+
+const Home = () => (
     <main className="food-view">
       <Gallery />
       <Overviews />
       <Main />
       <Reserver />
-      <Social />
-      <Newsletters />
-      <Footer />
     </main>
-  </div>
 );
 
 
-export default Homepage;
+export default Home;
