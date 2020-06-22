@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class About extends Component {
     render() {
         return (
           <div className="ourStory">
+            <div className="breadcrumbBar">
+              <Breadcrumb>
+                <BreadcrumbItem>
+                  <Link to="/home">Home</Link>
+                </BreadcrumbItem>
+                <BreadcrumbItem active>About Us</BreadcrumbItem>
+              </Breadcrumb>
+            </div>
             <div className="ourStory__intro">
               <h1 className="ourStory__intro--header">Story about us</h1>
               <div className="ourStory__intro--dec">
@@ -37,7 +47,8 @@ class About extends Component {
                     cum, distinctio quam.
                   </p>
                 </div>
-                <img src="images/inspiration.jpg"
+                <img
+                  src="images/inspiration.jpg"
                   alt="Story about us"
                   className="ourStory__intro--dec-img"
                 />
