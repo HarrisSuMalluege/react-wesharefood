@@ -1,15 +1,26 @@
 import React from "react";
-import { Breadcrumb, BreadcrumbItem, Card, CardDeck } from 'reactstrap'; 
+import { Breadcrumb, BreadcrumbItem, } from 'reactstrap'; 
 import { Link } from "react-router-dom";
 
 import Reserver from "../home/reserver.component";
+import RecipesItem from "./recipesItemComponent";
+
+
+import { RECIPES } from '../shared/recipes';
+
 
 
 class Recipes extends React.Component {
-  render() {
-    return (
+    constructor(props){
+        super(props);
+        this.state ={
+            recipes: RECIPES,
+        }
+    }
+    render() {
+      return (
         <div className="recipesCard">
-        <Reserver />
+          <Reserver />
           <div className="breadcrumbBar">
             <Breadcrumb>
               <BreadcrumbItem>
@@ -18,9 +29,14 @@ class Recipes extends React.Component {
               <BreadcrumbItem active>Recipes</BreadcrumbItem>
             </Breadcrumb>
           </div>
+          {this.state.recipes.map(({ id, ...otherRecipesProps }) => (
+            <RecipesItem key={id} {...otherRecipesProps} />
+          ))}
         </div>
-    );
-  }
+      );
+    }
 }
+
+
 
 export default Recipes;

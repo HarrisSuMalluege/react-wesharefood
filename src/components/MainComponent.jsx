@@ -25,7 +25,7 @@ class Main extends Component {
                   <Route path="/recipes" component={Recipes} />
                   <Route path="/about" component={About} />
                   <Route path="/contact" component={Contact} />
-                  <Redirect to="/home" />
+                  <Redirect to="/" />
                 </Switch>
                 <Social />
                 <Newsletters />

@@ -5,10 +5,12 @@ import { Breadcrumb, BreadcrumbItem, Form, FormGroup, Input, Label, Button } fro
 import Reserver from '../home/reserver.component';
 
 class Contact extends Component {
+    
     render() {
+        // let bgImg = require('../../../public/images/nat-10.jpg');
         return (
           <div className="section-contact" id="sectionBook">
-            <div className="contact">
+            <div className="contact" >
               <div className="breadcrumbBar">
                 <Breadcrumb className="breadcrumbBar">
                   <BreadcrumbItem>
@@ -76,7 +78,7 @@ class Contact extends Component {
                       type="textarea"
                       id="feedback"
                       name="feedback"
-                      rows="8"
+                      rows="4"
                       placeholder="Please kindly provide your messages"
                       className="form__input"
                     ></Input>
