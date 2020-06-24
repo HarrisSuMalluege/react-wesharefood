@@ -1091,3 +1091,13 @@ body {
       margin-left: 5rem;
       font-size: 2rem;
       color: #fff; }
+
+
+      .reserver {
+        margin-top: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #7deca2;
+
+      }

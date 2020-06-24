@@ -1,30 +1,62 @@
 import React from 'react';
-import { Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label, Button } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, Label, Button, Col, Row  } from 'reactstrap';
+import { Control, LocalForm, Errors } from "react-redux-form";
+
+
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !val || val.length <= len;
+const minLength = (len) => (val) => val && val.length >= len;
 
 class Reserver extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isNavOpen: false,
       isModalOpen: false,
+      reservation: "",
+      author: "",
+      text: "",
+      touched: {
+        reservation: false,
+        author: false,
+        text: false,
+      },
     };
-    this.toggleModal = this.toggleModal.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);   // function to the class to handle the form submission
+
+    // this.toggleModal = this.toggleModal.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  toggleModal() {
+
+  toggleModal = () => {
     this.setState({
       isModalOpen: !this.state.isModalOpen,
     });
+  };
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
   }
 
-  handleLogin(event) {
-    // function to the class to handle the form submission
-    alert(
-      `Username: ${this.username.value} Password: ${this.password.value} Remember: ${this.remember.checked} `
-    );
+  handleSubmit(values) {
+    // To initiate the action upon the user submitting the comment form
     this.toggleModal();
-    event.preventDefault();
+    
+    console.log(
+      "Current state is: " +
+        JSON.stringify(values)
+    );
+    alert(
+      "Current state is: " +
+        JSON.stringify(values)
+    );
   }
+
 
   render() {
     return (
@@ -39,42 +71,87 @@ class Reserver extends React.Component {
           </button>
         </div>
 
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
+        <Modal
+          isOpen={this.state.isModalOpen}
+          toggle={this.toggleModal}
+          className="reserver"
+        >
+          <ModalHeader toggle={this.toggleModal}>Reserver</ModalHeader>
           <ModalBody>
-            <Form onSubmit={this.handleLogin}>
-              <FormGroup>
-                <Label htmlFor="username">Username</Label>
-                <Input
-                  type="text"
-                  id="username"
-                  name="username"
-                  innerRef={(input) => (this.username = input)}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  type="email"
-                  id="email"
-                  name="email"
-                  innerRef={(input) => (this.email = input)}
-                />
-              </FormGroup>
-              <FormGroup check>
-                <Label check>
-                  <Input
-                    type="checkbox"
-                    name="remember"
-                    innerRef={(input) => (this.remember = input)}
-                  />
-                  Remember me
+            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+              <Row className="form-group">
+                <Label md={12} htmlFor="rating">
+                  How many seats do you want?
                 </Label>
-              </FormGroup>
-              <Button type="submit" value="submit"  className="newsLetters__form-signUp-btn">
-                Reserver
+                <Col md={12}>
+                  <Control.select
+                    model=".reservation"
+                    className="form-control"
+                    name="reservation"
+                    id="reservation"
+                    value={this.state.reservation}
+                    onChange={this.handleInputChange}
+                  >
+                    <option>Please choose a value</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </Control.select>
+                </Col>
+              </Row>
+              <Row className="form-group">
+                <Label md={12} htmlFor="author">
+                  Your Name
+                </Label>
+                <Col md={12}>
+                  <Control.text
+                    model=".author"
+                    className="form-control"
+                    id="author"
+                    name="author"
+                    placeholder="Your Name"
+                    value={this.state.author}
+                    onChange={this.handleInputChange}
+                    validators={{
+                      required,
+                      minLength: minLength(2),
+                      maxLength: maxLength(15),
+                    }}
+                  />
+                  <Errors
+                    className="text-danger"
+                    model=".author"
+                    show="touched"
+                    component="div"
+                    messages={{
+                      minLength: "Must be at least 2 characters",
+                      maxLength: "Must be 15 characters or less",
+                    }}
+                  />
+                </Col>
+              </Row>
+              <Row className="form-group">
+                <Label md={12} htmlFor="text">
+                  Additional Requirement:
+                </Label>
+                <Col md={12}>
+                  <Control.textarea
+                    model=".text"
+                    className="form-control"
+                    id="text"
+                    name="text"
+                    rows={6}
+                    value={this.state.text}
+                    onChange={this.handleInputChange}
+                  />
+                </Col>
+              </Row>
+              <Button type="submit" value="submit" className="btn btn--green">
+                Submit
               </Button>
-            </Form>
+            </LocalForm>
           </ModalBody>
         </Modal>
       </React.Fragment>
