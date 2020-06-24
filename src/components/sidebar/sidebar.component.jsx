@@ -21,12 +21,14 @@ const SideBar = () => (
           <span>Recipes</span>
         </Link>
       </li>
-      <li className="side-nav__item">
+      {/*
+            <li className="side-nav__item">
         <Link to="/neighbors" className="side-nav__link">
           <Icon name="compass" className="side-nav__icon" />
           <span>Neighbors</span>
         </Link>
       </li>
+*/}
       <li className="side-nav__item">
         <Link to="/about" className="side-nav__link">
           <Icon name="about" className="side-nav__icon" />

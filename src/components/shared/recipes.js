@@ -2,8 +2,8 @@ export const RECIPES = [
   {
     id: 0,
     recipesId: 0,
-    title: "Flufy Pancake",
-    image: "/images/food-1.jpg",
+    title: "The Best Cheesecake",
+    image: "/images/chesesscake.jpg",
     featured: true,
     description: 'This card has supporting text below as a natural lead-in to additional content.',
     linkUrl: 'organic food/flufy pancake',

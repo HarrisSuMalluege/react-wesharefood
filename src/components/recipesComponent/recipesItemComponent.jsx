@@ -5,9 +5,9 @@ import {CardDeck, Card, CardImg, CardText, CardBody, CardTitle, CardFooter } fro
 
 
 const RecipesItem = ({ title, description, image, date, history, linkUrl, match }) => (
-     <CardDeck>
+     <CardDeck style={{ padding:10}}>
        <Card className="recipesCard__main" onClick={() => history.push(`${match.url}${linkUrl}`)}>
-         <CardImg className="recipesCard__img" src={image} />
+         <CardImg src={image} />
          <CardBody>
            <CardTitle className="recipesCard__heading">
              {title}

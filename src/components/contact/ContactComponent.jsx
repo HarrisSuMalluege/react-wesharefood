@@ -1,16 +1,45 @@
 import React, { Component } from 'react';
+// import { Control, Form, Errors } from 'react-redux-form';
 import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Form, FormGroup, Input, Label, Button } from 'reactstrap'; 
 
 import Reserver from '../home/reserver.component';
 
 class Contact extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      fullName: "",
+      email: "",
+      phoneNum: "",
+      messages: "",
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  // Setup the form change method
+  handleInputChange(event) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value
+    });
+  }
+  // Setup submit method
+  handleSubmit(event) {
+    console.log("Current state is: " + JSON.stringify(this.state));
+    alert("Current state is " + JSON.stringify(this.state));
+    event.preventDefault();
+  }
     
     render() {
         // let bgImg = require('../../../public/images/nat-10.jpg');
         return (
           <div className="section-contact" id="sectionBook">
-            <div className="contact" >
+            <div className="contact">
               <div className="breadcrumbBar">
                 <Breadcrumb className="breadcrumbBar">
                   <BreadcrumbItem>
@@ -36,14 +65,16 @@ class Contact extends Component {
                   </p>
                 </div>
 
-                <Form className="form">
-                  <FormGroup class="form__group">
+                <Form className="form" onSubmit={this.handleSubmit}>
+                  <FormGroup className="form__group">
                     <Input
                       type="text"
                       id="fullName"
                       name="fullName"
                       placeholder="Full Name"
                       className="form__input"
+                      value={this.state.fullName}
+                      onChange={this.handleInputChange}
                     />
                     <Label htmlFor="fullName" className="form__label">
                       Full Name
@@ -56,31 +87,37 @@ class Contact extends Component {
                       name="email"
                       placeholder="Email"
                       className="form__input"
+                      value={this.state.email}
+                      onChange={this.handleInputChange}
                     />
                     <Label htmlFor="email" className="form__label">
-                      Email
+                      example@gmail.com
                     </Label>
                   </FormGroup>
                   <FormGroup>
                     <Input
                       type="tel"
-                      id="phone"
-                      name="phone"
+                      id="phoneNum"
+                      name="phoneNum"
                       placeholder="Phone Number"
                       className="form__input"
+                      value={this.state.phoneNum}
+                      onChange={this.handleInputChange}
                     />
                     <Label htmlFor="phone" className="form__label">
-                      Phone Number
+                      +16128888888
                     </Label>
                   </FormGroup>
                   <FormGroup>
                     <Input
                       type="textarea"
-                      id="feedback"
-                      name="feedback"
+                      id="messages"
+                      name="messages"
                       rows="4"
                       placeholder="Please kindly provide your messages"
                       className="form__input"
+                      value={this.state.messages}
+                      onChange={this.handleInputChange}
                     ></Input>
                     <Label htmlFor="feedback" className="form__label">
                       Your Messages
