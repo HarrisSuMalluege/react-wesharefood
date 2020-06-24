@@ -118,7 +118,7 @@ class Contact extends Component {
                       className="form__input"
                       value={this.state.messages}
                       onChange={this.handleInputChange}
-                    ></Input>
+                    />
                     <Label htmlFor="feedback" className="form__label">
                       Your Messages
                     </Label>
